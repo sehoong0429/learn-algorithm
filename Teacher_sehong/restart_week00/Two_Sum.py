@@ -1,10 +1,10 @@
+#Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+#You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
 class Solution(object):
     def twoSum(self, nums, target):
-        n = len(nums)
-        for i in range(n):
-						//i 다음부터 n 까지 순회를 하고 
-            for j in range(i + 1, n): 
-								//i번째 숫자와 j번째 숫자의 합이 target과 같으면 
-                if nums[i] + nums[j] == target: 
-										//i와 j를 return 한다
-                    return[i,j] 
+        #요소 i부터 다음 요소 까지 한번씩 더해보고 합이 target과 같으면 리턴
+        for i in range(len(nums) - 1):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
