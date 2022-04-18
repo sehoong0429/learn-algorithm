@@ -19,34 +19,31 @@ class Solution(object):
         """
 #2개의 포인터(from, to)를 이용해 연결할 노드를 가리킨다.
         # l1에 아무것도 없으면 l2만 return 해주면 된다.
-        if list1 == None:
-            return list2
+        if None in (list1, list2):
+            return list1 or list2
 
-        # l1 = [1, 2] , l2 = []
-        if list2 == None:
-            return list1
+            # from <= to
 
-        # 2개의 포인터(from, to)를 이용해 연결할 노드를 가리킨다.
-        ans = None
         if list1.val <= list2.val:
-            fromPtr = list1
+            ans = fromPtr = list1
             toPtr = list2
-            ans = fromPtr
+
         else:
-            fromPtr = list2
+            ans = fromPtr = list2
             toPtr = list1
-            ans = fromPtr
+
         while fromPtr != None:
             if fromPtr.val <= toPtr.val:
                 while fromPtr.next != None and fromPtr.next.val <= toPtr.val:
                     fromPtr = fromPtr.next
-                temp = fromPtr.next
-                fromPtr.next = toPtr
 
-                fromPtr = temp
-                pass
+                fromPtr.next, fromPtr = toPtr, fromPtr.next
             else:
-                temp = fromPtr
-                fromPtr = toPtr
-                toPtr = temp
+                fromPtr, toPtr = toPtr, fromPtr
         return ans
+
+
+
+
+
+
