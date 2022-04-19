@@ -1,3 +1,4 @@
+#MaximumSubarray
 #Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 #A subarray is a contiguous part of an array.
 
@@ -13,7 +14,7 @@ class Solution(object):
         currSum = 0  # 현재까지 더한 값을 트래킹 하기 위해 current sum을 0으로 지정
 
         for n in nums:
-            # 현재까지 더한 요소들의 합이 음수일 경우 0으로 바꿔줌.
+            # 현재까지 더한 요소들의 합이 음수일 경우 0으로 바꿔줘야함
             if currSum < 0:
                 currSum = 0
             # 현재까지 더한 요소가 양수일경우 그 다음 요소인 n을 더해준다.
